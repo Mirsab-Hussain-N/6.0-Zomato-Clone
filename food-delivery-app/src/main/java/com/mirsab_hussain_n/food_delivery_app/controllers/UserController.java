@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import com.mirsab_hussain_n.food_delivery_app.*;
 import com.mirsab_hussain_n.food_delivery_app.entity.*;
 import com.mirsab_hussain_n.food_delivery_app.repository.*;
+import org.springframework.http.HttpStatus;
 
 import java.util.*;
 
@@ -25,9 +26,26 @@ public class UserController {
             return ResponseEntity.badRequest().body("Email already exists");
         }
         userRepository.save(user);
-        return ResponseEntity.ok("User registered successfully");
-        
+        return ResponseEntity.ok("User registered successfully");   
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Map<String, String> loginData){
+        String email = loginData.get("email");
+        String password = loginData.get("password");
+
+        User user = userRepository.findByEmail(email);
+
+        if(user == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
+        if(!user.getPasswordHash().equals(password)){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid Password");
+        }
+        return ResponseEntity.ok(user);
+
+    }
+
 
     
 }

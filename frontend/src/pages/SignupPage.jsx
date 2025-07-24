@@ -44,38 +44,38 @@ const SignupPage = () =>{
             <div className="signup-container">
              <div className="signup-box">
                 <h2>Create Your Account</h2>
-            <p>Join us and discover amazing experiences!</p>
-            <form onSubmit={handleSubmit}>
-            <div className="input-group">
-                <label>Full Name</label>
-                <input type="text" name="name" value={form.name} onChange={handleChange} required />
+                <p>Join us and discover amazing experiences!</p>
+                <form onSubmit={handleSubmit}>
+                <div className="input-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" value={form.name} onChange={handleChange} required />
+                </div>
+                <div className="input-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" value={form.email} onChange={handleChange} required />
+                </div>
+                <div className="input-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" name="mobile" value={form.mobile} onChange={handleChange} required />
+                </div>
+                <div className="input-group">
+                    <label>City</label>
+                    <input type="text" name="city" value={form.city} onChange={handleChange} required />
+                </div>
+                <div className="input-group">
+                    <label>Password</label>
+                    <input type="password" name="password" value={form.password} onChange={handleChange} required />
+                </div>
+                <div className="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirmpassword" value={form.confirmpassword} onChange={handleChange} required />
+                </div>
+                <button type="submit" className="signup-button">Sign Up</button>
+                <div className="login-link">
+                    Already have an account? <a href="/login">Log In</a>
+                </div>
+                </form>
             </div>
-            <div className="input-group">
-                <label>Email Address</label>
-                <input type="email" name="email" value={form.email} onChange={handleChange} required />
-            </div>
-            <div className="input-group">
-                <label>Mobile Number</label>
-                <input type="tel" name="mobile" value={form.mobile} onChange={handleChange} required />
-            </div>
-            <div className="input-group">
-                <label>City</label>
-                <input type="text" name="city" value={form.city} onChange={handleChange} required />
-            </div>
-            <div className="input-group">
-                <label>Password</label>
-                <input type="password" name="password" value={form.password} onChange={handleChange} required />
-            </div>
-            <div className="input-group">
-                <label>Confirm Password</label>
-                <input type="password" name="confirmpassword" value={form.confirmpassword} onChange={handleChange} required />
-            </div>
-            <button type="submit" className="signup-button">Sign Up</button>
-            <div className="login-link">
-                Already have an account? <a href="/login">Log In</a>
-            </div>
-            </form>
-        </div>
         </div>
     </div>
     );
