@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import "./pages_css/signup.css";
 
@@ -12,6 +13,8 @@ const SignupPage = () =>{
             ...form, [e.target.name]: e.target.value
         });
     };
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -33,8 +36,9 @@ const SignupPage = () =>{
             
             alert("Sign Up Successful!");
             console.log(response.data);
+            navigate("/");
         }catch(error){
-            alert("Signup failed!");
+            alert("Signup failed!" + error.response.data);
             console.error(error);
         }
     };

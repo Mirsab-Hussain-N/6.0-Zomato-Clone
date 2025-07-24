@@ -22,7 +22,7 @@ public class UserController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody User user){
-        if(userRepository.findByEmail(user.getEmail()).isPresent()){
+        if(userRepository.findByEmail(user.getEmail()) != null){
             return ResponseEntity.badRequest().body("Email already exists");
         }
         userRepository.save(user);
@@ -39,7 +39,7 @@ public class UserController {
         if(user == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
-        if(!user.getPasswordHash().equals(password)){
+        if(!user.getPassword().equals(password)){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid Password");
         }
         return ResponseEntity.ok(user);

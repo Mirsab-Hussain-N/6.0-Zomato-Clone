@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./pages_css/login.css";
 
@@ -6,6 +7,8 @@ const LoginPage = () => {
     const[form, setForm] = useState({
         email: "", password: ""
     });
+
+    const navigate = useNavigate();
 
     const handleChange = (e) =>{
         setForm({
@@ -24,6 +27,7 @@ const LoginPage = () => {
             });
             alert("Login Successful!");
             console.log(response.data);
+            navigate("/");
         }catch(error){
             alert("Login failed: "+ error.response.data);
         }
@@ -38,11 +42,11 @@ const LoginPage = () => {
                     <form action="" onSubmit={handleSubmit}>
                         <div className="input-group">
                             <label htmlFor="Email">Email Address</label>
-                            <input type="email" name="email" value={form.email} onChange={handleChange} required/>
+                            <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Enter email" required/>
                         </div>
                         <div className="input-group">
                             <label htmlFor="password">Password</label>
-                            <input type="password" name="password" value={form.password} onChange={handleChange} required/>
+                            <input type="password" name="password" value={form.password} onChange={handleChange} placeholder="Enter password" required/>
                         </div>
                         <div className = "samerow">
                             <div className="remember-me">
