@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from '../components/Header';
 import LocationBar from '../components/LocationBar';
 import RestaurantGrid from '../components/RestaurantGrid';
 import Footer from '../components/Footer';
 import axios from 'axios';
-
 
 const HomePage = () =>{
     const[restaurant, setRestaurant] = useState([]);

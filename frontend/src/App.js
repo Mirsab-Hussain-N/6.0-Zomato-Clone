@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RestaurantList from "./components/RestaurantList";
 import HomePage from './pages/HomePage';
+import SignupPage from './pages/SignupPage';
 
   //TESTING to check if we can retrive all restaurants or not: 
     // <div className="App">
@@ -12,10 +14,12 @@ import HomePage from './pages/HomePage';
 
 function App() {
   return (
-    <div>
-        <HomePage/>
-        {/* <RestaurantList/> */}
-    </div>
+    <Router>
+      <Routes>
+        <Route path = "/" element = {<HomePage/>}/>
+        <Route path = "signup" element = {<SignupPage/>}/>
+      </Routes>
+    </Router>
     
     
 

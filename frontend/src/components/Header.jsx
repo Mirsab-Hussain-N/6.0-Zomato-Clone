@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Header = () => {
   return (
@@ -12,8 +13,8 @@ const Header = () => {
           <span className="search-icon">🔍</span>
         </div>
         <div className="user-actions">
-          <a href="#">Log in</a>
-          <a href="#">Sign in</a>
+          <Link to="/login">Log in</Link>
+          <Link to="/signup">Sign in</Link>
         </div>
       </div>
     </header>

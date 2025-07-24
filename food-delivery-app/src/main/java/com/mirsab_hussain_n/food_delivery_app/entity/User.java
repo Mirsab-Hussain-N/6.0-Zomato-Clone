@@ -20,8 +20,7 @@ public class User {
     private Long id;
 
 
-    private String firstname;
-    private String lastname;
+    private String name;
     
     private String email;
     private String password;
@@ -37,10 +36,9 @@ public class User {
 
 
 
-    public User(Long id, String firstName, String lastName,String email, String password, String mobile, String city, Role role) {
+    public User(Long id, String name,String email, String password, String mobile, String city, Role role) {
         this.id = id;
-        this.firstname = firstName;
-        this.lastname = lastName;
+        this.name = name;
         this.email = email;
         this.password = password;
         this.mobile = mobile;
@@ -51,11 +49,9 @@ public class User {
     public Long getId()               { return id; }
     public void setId(Long id)        { this.id = id; }
 
-    public String getFirstName()      { return firstname; }
-    public void setFirstName(String firstName) { this.firstname = firstName; }
+    public String getName()      { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public String getLastName()       { return lastname; }
-    public void setLastName(String lastName) { this.lastname = lastName; }
 
     public String getEmail()          { return email; }
     public void setEmail(String email){ this.email = email; }
