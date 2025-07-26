@@ -12,6 +12,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/food-items")
+@CrossOrigin(origins = "http://localhost:3000")
 public class FoodItemController {
     @Autowired
     private FoodItemService foodItemService;
