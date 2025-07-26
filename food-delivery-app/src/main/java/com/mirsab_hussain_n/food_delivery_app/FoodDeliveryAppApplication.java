@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @SpringBootApplication
-@PropertySource("classpath:application-secret.properties")
+// @PropertySource("classpath:application-secret.properties")
 
 public class FoodDeliveryAppApplication {
 

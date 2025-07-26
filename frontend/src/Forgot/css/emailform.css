@@ -1,6 +1,7 @@
 /* General Body Styling */
-.login-page {
-  font-family: 'Inter', sans-serif;
+
+.forgot-box{
+    font-family: 'Inter', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,41 +13,37 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Login Container - Centers the login box */
-.login-container {
-
+/* Forgot Password Container - Centers the box */
+.forgot-password-container {
     display: flex;
-    height: auto;
-    background-color: limegreen;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 60px; 
-    padding-bottom: 400px;
+    padding: 20px; /* Padding for smaller screens */
     box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
-/* Login Box Styling */
-.login-box {
+/* Forgot Password Box Styling */
+.forgot-password-box {
     background-color: #ffffff;
     padding: 40px;
     border-radius: 15px; /* More rounded corners */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
     text-align: center;
-    max-width: 400px; /* Max width for the login box */
+    max-width: 400px; /* Max width for the box */
     width: 100%; /* Ensure it takes full width on smaller screens */
     border: 1px solid #e0e0e0; /* Subtle border */
     box-sizing: border-box;
 }
 
-.login-box h2 {
+.forgot-password-box h2 {
     font-size: 2.2em; /* Larger heading */
     margin-bottom: 10px;
     color: #2c3e50; /* Darker heading color */
     font-weight: 700; /* Bolder heading */
 }
 
-.login-box p {
+.forgot-password-box p {
     font-size: 1em;
     color: #7f8c8d; /* Lighter paragraph color */
     margin-bottom: 30px;
@@ -54,7 +51,7 @@
 
 /* Input Group Styling */
 .input-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* More space below input */
     text-align: left;
 }
 
@@ -66,8 +63,8 @@
     font-weight: 500;
 }
 
-.input-group input[type="text"],
-.input-group input[type="password"] {
+.input-group input[type="email"],
+ input[type="number"] {
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #ccc;
@@ -77,114 +74,68 @@
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.input-group input[type="text"]:focus,
-.input-group input[type="password"]:focus {
+.input-group input[type="email"], input[type="number"]:focus {
     border-color: #007bff; /* Blue focus border */
     outline: none;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle focus glow */
 }
 
-/* Remember Me Checkbox */
-.samerow{
-    display: flex;
-    justify-content: space-between;
-}
-.remember-me {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Align to the left */
-    margin-bottom: 25px;
-    font-size: 0.9em;
-    color: #555;    
-}
-
-.samerow a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-.samerow a:hover{
-    text-decoration: underline;
-}
-
-.remember-me input[type="checkbox"] {
-    margin-right: 8px;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-}
-
-/* Login Button Styling */
-.login-button {
+/* Reset Button Styling */
+.reset-button {
+    margin-top: 20px;
     width: 100%;
     padding: 14px;
-    background-color: #007bff; /* Primary blue button */
-    color: white;
+    background-color: #ffc107; /* Yellowish/Orange button for reset */
+    color: #333; /* Darker text for contrast */
     border: none;
     border-radius: 8px;
     font-size: 1.1em;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); /* Button shadow */
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.2); /* Button shadow */
 }
 
-.login-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+.reset-button:hover {
+    background-color: #e0a800; /* Darker yellow on hover */
     transform: translateY(-2px); /* Slight lift effect */
 }
 
-.login-button:active {
+.reset-button:active {
     transform: translateY(0); /* Press down effect */
 }
 
-/* Forgot Password Link */
-.forgot-password {
-    display: block;
-    margin-top: 15px;
-    color: #007bff;
-    text-decoration: none;
-    font-size: 0.9em;
-    transition: color 0.3s ease;
-}
-
-.forgot-password:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-/* Sign Up Link */
-.signup-link {
+/* Back to Login Link */
+.back-to-login {
     margin-top: 30px;
     font-size: 0.95em;
     color: #666;
 }
 
-.signup-link a {
+.back-to-login a {
     color: #007bff;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.signup-link a:hover {
+.back-to-login a:hover {
     color: #0056b3;
     text-decoration: underline;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 600px) {
-    .login-box {
+    .forgot-password-box {
         padding: 30px 20px; /* Adjust padding for smaller screens */
         margin: 10px; /* Add some margin to avoid sticking to edges */
     }
 
-    .login-box h2 {
+    .forgot-password-box h2 {
         font-size: 1.8em;
     }
 
-    .login-box p {
+    .forgot-password-box p {
         font-size: 0.9em;
         margin-bottom: 20px;
     }
@@ -198,7 +149,7 @@
         font-size: 0.95em;
     }
 
-    .login-button {
+    .reset-button {
         padding: 12px;
         font-size: 1em;
     }

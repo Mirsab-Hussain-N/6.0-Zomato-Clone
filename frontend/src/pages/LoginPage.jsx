@@ -54,7 +54,7 @@ const LoginPage = () => {
                                 <label htmlFor="">Remember me</label>
                                 
                             </div>
-                            <a href="/">Forgot Password</a>
+                            <a href="/forgotpassword">Forgot Password</a>
                         </div>
 
                         

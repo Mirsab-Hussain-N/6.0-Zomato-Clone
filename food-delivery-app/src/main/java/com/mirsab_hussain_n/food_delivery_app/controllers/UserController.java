@@ -78,7 +78,7 @@ public class UserController {
         return ResponseEntity.ok("OTP has been sent to your email id");
 
     }
-
+    
 
     @PostMapping("/verify-otp")
     public ResponseEntity<?> verifyOtp(@RequestBody Map<String, String> providedData){
@@ -108,6 +108,12 @@ public class UserController {
 
         user.setPasswordHash(resetPass);
         userRepository.save(user);
+
+
+         VerifyUser verifyUser = verifyUserRepository.findByEmail(email);
+        if (verifyUser != null) {
+            verifyUserRepository.deleteAll();
+        }
         return ResponseEntity.ok("Password has been changed!");
     }
     
