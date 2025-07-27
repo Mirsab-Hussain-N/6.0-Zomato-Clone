@@ -8,6 +8,7 @@ import LoginPage from './pages/LoginPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import RestaurantMenu from './pages/RestaurantMenu';
 import { CartProvider } from "./contexts/CartContent";
+import CartPage from './pages/CartPage'
 
 
   //TESTING to check if we can retrive all restaurants or not: 
@@ -28,6 +29,7 @@ function App() {
             <Route path = "login" element = {<LoginPage/>}/>
             <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
             <Route path="/restaurant/:restaurantId" element={<RestaurantMenu />} />
+            <Route path='/cart' element={<CartPage/>}/>
 
           </Routes>
         </Router>

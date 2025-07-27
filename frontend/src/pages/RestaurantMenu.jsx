@@ -7,6 +7,8 @@ import Footer from "../components/Footer";
 import LocationBar from '../components/LocationBar';
 import "../pages/pages_css/menu.css"
 import {useCart} from "../contexts/CartContent"
+// import CartPage from './pages/CartPage'
+import {Link} from "react-router-dom";
 
 
 
@@ -59,6 +61,11 @@ const RestaurantMenu = () =>{
                     </div>
                     </div>
                 ))}
+                </div>
+                <div style={{ textAlign: "center", marginTop: "30px" }}>
+                    <Link to="/cart">
+                        <button className="checkout-btn">View Cart</button>
+                    </Link>
                 </div>
             </main>
 

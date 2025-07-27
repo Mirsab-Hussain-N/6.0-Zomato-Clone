@@ -55,7 +55,7 @@ const CartPage = () => {
                         <div className="bill-summary">
                             <div className="bill-row item-total">
                                 <span>Item Total</span>
-                                <span className="item-total-amount">₹{item.Total.toFixed(2)}</span>
+                                <span className="item-total-amount">₹{itemTotal.toFixed(2)}</span>
                             </div>
                             <div className="bill-row delivery-fee">
                                 <span>Delivery Fee</span>
