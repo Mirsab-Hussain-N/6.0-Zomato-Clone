@@ -112,8 +112,8 @@ header {
 }
 
 .search-bar input:focus {
-  outline: 2px solid #ffcc00;
-  box-shadow: 0 0 8px rgba(255,204,0,0.4);
+  outline: 2px solid #122f8c;
+  box-shadow: 0 0 8px rgba(9, 134, 145, 0.4);
 }
 
 
@@ -137,7 +137,8 @@ header {
 
 
 .p-size{
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: bolder;
 }
 
 
@@ -154,6 +155,7 @@ header {
 .user-actions a:hover {
   opacity: 0.9;
   transform: translateY(-1px);
+  color: rgb(97, 97, 234);
 }
 
 
