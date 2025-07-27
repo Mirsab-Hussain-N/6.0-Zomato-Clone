@@ -1,12 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import RestaurantList from "./components/RestaurantList";
 import HomePage from './pages/HomePage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import RestaurantMenu from './pages/RestaurantMenu';
+import { CartProvider } from "./contexts/CartContent";
 
 
   //TESTING to check if we can retrive all restaurants or not: 
@@ -18,16 +19,20 @@ import RestaurantMenu from './pages/RestaurantMenu';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path = "/" element = {<HomePage/>}/>
-        <Route path = "signup" element = {<SignupPage/>}/>
-        <Route path = "login" element = {<LoginPage/>}/>
-        <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
-        <Route path="/restaurant/:restaurantId" element={<RestaurantMenu />} />
+    <CartProvider>
+      {/* <BrowserRouter> */}
+        <Router>
+          <Routes>
+            <Route path = "/" element = {<HomePage/>}/>
+            <Route path = "signup" element = {<SignupPage/>}/>
+            <Route path = "login" element = {<LoginPage/>}/>
+            <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
+            <Route path="/restaurant/:restaurantId" element={<RestaurantMenu />} />
 
-      </Routes>
-    </Router>
+          </Routes>
+        </Router>
+      {/* </BrowserRouter> */}
+    </CartProvider>
     
     
 

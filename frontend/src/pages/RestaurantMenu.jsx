@@ -6,12 +6,15 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LocationBar from '../components/LocationBar';
 import "../pages/pages_css/menu.css"
+import {useCart} from "../contexts/CartContent"
+
 
 
 const RestaurantMenu = () =>{
     const {restaurantId} = useParams();
     const[foodItems, setFoodItems] = useState([]);
     const [restaurantName, setRestaurantName] = useState("");
+    const {addToCart} = useCart();
 
     useEffect(() => {
     axios.get(`http://localhost:8080/food-items/menu/${restaurantId}`)
@@ -52,7 +55,7 @@ const RestaurantMenu = () =>{
                         src="/images/image2.jpg"
                         alt={item.name}
                         />
-                        <button className="add-button">ADD</button>
+                        <button className="add-button" onClick={() => addToCart(item)}>ADD</button>
                     </div>
                     </div>
                 ))}
