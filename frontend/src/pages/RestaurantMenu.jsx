@@ -9,6 +9,7 @@ import "../pages/pages_css/menu.css"
 import {useCart} from "../contexts/CartContent"
 // import CartPage from './pages/CartPage'
 import {Link} from "react-router-dom";
+import CartControl from "../components/CartControl";
 
 
 
@@ -52,13 +53,15 @@ const RestaurantMenu = () =>{
                         <p className="item-price">₹{item.price}</p>
                         <p className="item-description">Delicious combo. Add to cart to enjoy!</p>
                     </div>
-                    <div className="item-image">
-                        <img
-                        src="/images/image2.jpg"
-                        alt={item.name}
-                        />
-                        <button className="add-button" onClick={() => addToCart(item)}>ADD</button>
-                    </div>
+                    <div className="item-image-wrapper">
+
+                        <div className="item-image">
+                            <img src="/images/image2.jpg" alt={item.name} />
+                            {/* <button className="add-button" onClick={() => addToCart(item)}>ADD</button> */}
+                        </div>
+                            <CartControl item={item}/>  
+                        </div>
+
                     </div>
                 ))}
                 </div>

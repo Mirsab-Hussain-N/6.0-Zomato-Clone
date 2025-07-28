@@ -5,6 +5,7 @@ import { useCart } from "../contexts/CartContent";
 
 const Header = () => {
   const {cartItems} = useCart();
+  const totalCartQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
 
 
   return (
@@ -25,8 +26,8 @@ const Header = () => {
           <Link to="/cart" className="cart-link">
             <p className="p-size">
             🛒 Cart
-            {cartItems.length > 0 && (
-              <span className="cart-badge">{cartItems.length}</span>
+            {totalCartQuantity  > 0 && (
+              <span className="cart-badge">{totalCartQuantity }</span>
             )}
             </p>
           </Link>

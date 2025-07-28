@@ -82,7 +82,15 @@ header {
   font-weight: bold;
   flex-shrink: 0;
   margin-right: 25px; /* Space between logo and search */
+  transition: all 0.2s ease;
 }
+
+.logo:hover{
+  transform: translateY(-5px);
+  transform: e;
+  
+}
+
 .logo a {
   color: white;
   text-decoration: none;
@@ -138,7 +146,7 @@ header {
 
 .p-size{
   font-size: 16px;
-  font-weight: bolder;
+  font-weight: 800;
 }
 
 
@@ -154,8 +162,8 @@ header {
 
 .user-actions a:hover {
   opacity: 0.9;
-  transform: translateY(-1px);
-  color: rgb(97, 97, 234);
+  transform: translateY(-3px);
+  color: rgb(124, 124, 233);
 }
 
 
@@ -200,15 +208,15 @@ header {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
 }
 
 .restaurant-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.1);
 }
 
 .restaurant-image {

@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import LocationBar from "../components/LocationBar";
 import { useCart } from "../contexts/CartContent";
 import "./pages_css/cartstyle.css";
-
+import { Link } from "react-router-dom";
 const CartPage = () => {
     const {cartItems, addToCart, removeFromCart, clearCart} = useCart();
     const [instructions, setInstructions] = useState("");
@@ -42,7 +42,7 @@ const CartPage = () => {
                                     <div className="item-quantity">
                                         <button className="quantity-btn minus" onClick={ () => removeFromCart(item.id)}>-</button>
                                         <span className="quantity">{item.quantity}</span>
-                                        <button className="quantity-btn plus" onClick={() => addToCart(item.id)}> + </button>
+                                        <button className="quantity-btn plus" onClick={() => addToCart(item)}> + </button>
                                     </div>
                                 </div>
                                 <button className="remove-item" onClick={() => removeFromCart(item.id)}> x </button>
@@ -79,6 +79,12 @@ const CartPage = () => {
                             <h3>Delivery Instructions</h3>
                             <textarea name="" id="deliveryInstructions" placeholder="Any delivery instructions..." value={instructions} onChange={(e) => setInstructions(e.target.value)} >
                             </textarea>
+                        </div>
+
+                        <div style={{ textAlign: "center", marginTop: "30px" }}>
+                            <Link to="/payment">
+                                <button className="checkout-btn">Proceed to Payment</button>
+                            </Link>
                         </div>
                     </>
                 )}

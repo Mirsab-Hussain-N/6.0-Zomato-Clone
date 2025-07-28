@@ -22,13 +22,20 @@ export const CartProvider = ({children}) =>{
   };
 
     const removeFromCart = (itemId) => {
-        setCartItems( (prev) => prev.filter((item) => item.id !== itemId));
+        setCartItems( (prev) => 
+          // prev.filter((item) => item.id !== itemId));
+        prev.map( (item) =>
+          item.id === itemId ?{ ...item, quantity: item.quantity - 1} : item
+        ).filter( (item) => item.quantity > 0) )
+    };
+    const getCartTotal = () => {
+      return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
     };
 
     const clearCart = () => setCartItems([]);
 
     return(
-        <CartContext.Provider value= { {cartItems, addToCart, removeFromCart, clearCart}}>
+        <CartContext.Provider value= { {cartItems, addToCart, removeFromCart, clearCart, getCartTotal}}>
             {children}
         </CartContext.Provider>
     );
