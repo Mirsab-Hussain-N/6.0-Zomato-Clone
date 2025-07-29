@@ -9,6 +9,7 @@ import com.mirsab_hussain_n.food_delivery_app.entity.Restaurant;
 import com.mirsab_hussain_n.food_delivery_app.entity.UserOrder;
 import com.mirsab_hussain_n.food_delivery_app.repository.OrderItemRepository;
 import com.mirsab_hussain_n.food_delivery_app.repository.OrderRepository;
+import com.mirsab_hussain_n.food_delivery_app.repository.UserOrderRepository;
 import com.mirsab_hussain_n.food_delivery_app.dto.*;
 
 import java.util.*;
@@ -17,7 +18,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/orders")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 public class OrderController {
     
     @Autowired
@@ -26,6 +27,9 @@ public class OrderController {
     @Autowired
     private OrderItemRepository orderItemRepo;
 
+    @Autowired
+    private UserOrderRepository userOrderRepository;
+
     @PostMapping  
     public ResponseEntity<Long> placeOrder(@RequestBody OrderRequest request){
         UserOrder order  = new UserOrder();
@@ -33,10 +37,11 @@ public class OrderController {
         order.setDeliveryFee(request.getDeliveryFee());
         order.setTax(request.getTax());
         order.setName(request.getName());
+        order.setEmail(request.getEmail());
+
         order.setPlatformFee(request.getPlatformFee());
         order.setGstCharges(request.getGstCharges());
 
-        order.setName(request.getName());
 
         List<OrderItem> items = new ArrayList<>();
         for(OrderItemDTO dto: request.getItems()){
@@ -48,7 +53,7 @@ public class OrderController {
             items.add(item);
         }
         order.setItems(items);
-        orderRepo.save(order);
+        // orderRepo.save(order);
 
         UserOrder savedOrder = orderRepo.save(order);
         return ResponseEntity.ok(savedOrder.getId());
@@ -66,7 +71,10 @@ public class OrderController {
         }
     }
 
+    @GetMapping("/user/{email}")
+    public List<UserOrder> getOrdersByEmail(@PathVariable String email) {
+        return userOrderRepository.findByEmail(email);
+    }
 
 
-    
 }

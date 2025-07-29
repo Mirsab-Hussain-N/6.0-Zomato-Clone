@@ -8,6 +8,13 @@ import "../pages/pages_css/payment.css"
 const PaymentPage = () => {
     const {cartItems, clearCart} = useCart();
     const navigate = useNavigate();
+    const user = JSON.parse(localStorage.getItem("user"));
+
+     useEffect(() => {
+        if (!user) {
+        navigate("/login");
+        }
+    }, [user, navigate]);
 
     const itemTotal = cartItems.reduce( (total, item) => total + item.price * item.quantity , 0);
     const deliveryFee = 40;
@@ -16,15 +23,18 @@ const PaymentPage = () => {
     const platformFee = 5;
     const gstCharges = itemTotal * 0.05;
     const totalPay = itemTotal + deliveryFee + platformFee + gstCharges;
+    
 
 
     const handlePayment = async () => {
-        const payload = {
-            name: "Guest User",
+        
+       const payload = {
+            name: user.name,
+            email: user.email,
             price: itemTotal,
-            deliveryFee: deliveryFee,
-            platformFee: platformFee,
-            gstCharges: gstCharges,
+            deliveryFee,
+            platformFee,
+            gstCharges,
             tax: 0,
             items: cartItems.map(item => ({
                 name: item.name,

@@ -1,6 +1,8 @@
 package com.mirsab_hussain_n.food_delivery_app.dto;
 import java.util.*;
 
+import jakarta.persistence.Column;
+
 public class OrderRequest {
     
     private String name;
@@ -9,6 +11,9 @@ public class OrderRequest {
     private double tax;
     private double platformFee;
     private double gstCharges;
+    @Column(nullable = false)
+    private String email;
+
 
     private List<OrderItemDTO> items;
 
@@ -62,6 +67,13 @@ public class OrderRequest {
     }
     public void setGstCharges(double gstCharges) {
         this.gstCharges = gstCharges;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 

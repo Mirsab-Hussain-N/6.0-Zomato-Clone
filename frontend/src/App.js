@@ -11,6 +11,9 @@ import { CartProvider } from "./contexts/CartContent";
 import CartPage from './pages/CartPage'
 import PaymentPage from './pages/PaymentPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
+import ProfilePage from './pages/ProfilePage';
+import MyOrdersPage from './pages/MyOrderPage';
+import OrderDetailsPage from './pages/OrderDetailsPage';
 
 
   //TESTING to check if we can retrive all restaurants or not: 
@@ -33,6 +36,10 @@ function App() {
             <Route path='/cart' element={<CartPage/>}/>
             <Route path="/payment" element={<PaymentPage />} />
             <Route path="/order-confirmation/:orderId" element={<OrderConfirmationPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/orders" element={<MyOrdersPage />} />
+            <Route path="/order/:id" element={<OrderDetailsPage />} />
+
 
           </Routes>
         </Router>

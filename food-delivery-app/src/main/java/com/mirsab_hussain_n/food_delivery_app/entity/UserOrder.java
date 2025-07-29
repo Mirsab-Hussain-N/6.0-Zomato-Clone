@@ -15,6 +15,10 @@ public class UserOrder {
     private Long id;
     private String name;
 
+    @Column(nullable = false)
+    private String email;
+
+
     @Column(nullable =  false)
     private double price;
     private double deliveryFee;
@@ -26,12 +30,12 @@ public class UserOrder {
     @Column(nullable = false)
     private double gstCharges;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<OrderItem> items;
 
 
-
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt = new Date();
 
     public UserOrder(){};
@@ -92,6 +96,20 @@ public class UserOrder {
     }
     public double getGstCharges() {
         return gstCharges;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }

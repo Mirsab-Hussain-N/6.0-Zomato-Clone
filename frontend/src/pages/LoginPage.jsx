@@ -26,7 +26,7 @@ const LoginPage = () => {
 
             });
             alert("Login Successful!");
-            console.log(response.data);
+            localStorage.setItem("user", JSON.stringify(response.data));
             navigate("/");
         }catch(error){
             alert("Login failed: "+ error.response.data);
