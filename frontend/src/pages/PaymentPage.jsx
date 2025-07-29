@@ -12,20 +12,27 @@ const PaymentPage = () => {
     const itemTotal = cartItems.reduce( (total, item) => total + item.price * item.quantity , 0);
     const deliveryFee = 40;
     const taxes = 35;
-    const totalPay = itemTotal + deliveryFee + taxes;
+    // const totalPay = itemTotal + deliveryFee + taxes;
+    const platformFee = 5;
+    const gstCharges = itemTotal * 0.05;
+    const totalPay = itemTotal + deliveryFee + platformFee + gstCharges;
+
 
     const handlePayment = async () => {
         const payload = {
-            name: "Guest User", 
+            name: "Guest User",
             price: itemTotal,
             deliveryFee: deliveryFee,
-            tax: taxes,
+            platformFee: platformFee,
+            gstCharges: gstCharges,
+            tax: 0,
             items: cartItems.map(item => ({
-            name: item.name,
-            qty: item.quantity,
-            price: item.price
+                name: item.name,
+                qty: item.quantity,
+                price: item.price
             }))
         };
+
 
         try {
             const res = await axios.post("http://localhost:8080/orders", payload);
@@ -62,9 +69,14 @@ const PaymentPage = () => {
                         <span>₹{deliveryFee}</span>
                     </div>
                     <div className="bill-row">
-                        <span>Taxes & Charges</span>
-                        <span>₹{taxes}</span>
+                        <span>Platform Fee</span>
+                        <span>₹{platformFee}</span>
                     </div>
+                    <div className="bill-row">
+                        <span>GST & Restaurant Charges</span>
+                        <span>₹{gstCharges.toFixed(2)}</span>
+                    </div>
+
                     <div className="bill-row total-row">
                         <span>To Pay</span>
                         <span>₹{totalPay}</span>

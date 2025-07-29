@@ -33,6 +33,10 @@ public class OrderController {
         order.setDeliveryFee(request.getDeliveryFee());
         order.setTax(request.getTax());
         order.setName(request.getName());
+        order.setPlatformFee(request.getPlatformFee());
+        order.setGstCharges(request.getGstCharges());
+
+        order.setName(request.getName());
 
         List<OrderItem> items = new ArrayList<>();
         for(OrderItemDTO dto: request.getItems()){

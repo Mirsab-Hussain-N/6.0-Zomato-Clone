@@ -7,6 +7,9 @@ public class OrderRequest {
     private double price;
     private double deliveryFee;
     private double tax;
+    private double platformFee;
+    private double gstCharges;
+
     private List<OrderItemDTO> items;
 
     public OrderRequest(){};
@@ -47,5 +50,19 @@ public class OrderRequest {
     public void setItems(List <OrderItemDTO> items){
         this.items = items;
     }
+    public double getPlatformFee() {
+        return platformFee;
+    }
+    public void setPlatformFee(double platformFee) {
+        this.platformFee = platformFee;
+    }
+
+    public double getGstCharges() {
+        return gstCharges;
+    }
+    public void setGstCharges(double gstCharges) {
+        this.gstCharges = gstCharges;
+    }
+
 
 }

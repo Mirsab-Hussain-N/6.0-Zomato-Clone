@@ -20,6 +20,11 @@ public class UserOrder {
     private double deliveryFee;
     private double tax;
 
+    @Column(nullable = false)
+    private double platformFee;
+
+    @Column(nullable = false)
+    private double gstCharges;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     @JsonManagedReference
@@ -75,4 +80,18 @@ public class UserOrder {
     public void setItems(List<OrderItem> items) {
         this.items = items;
     }
+    public void setPlatformFee(double platformFee) {
+        this.platformFee = platformFee;
+    }
+    public double getPlatformFee() {
+        return platformFee;
+    }
+
+    public void setGstCharges(double gstCharges) {
+        this.gstCharges = gstCharges;
+    }
+    public double getGstCharges() {
+        return gstCharges;
+    }
+
 }

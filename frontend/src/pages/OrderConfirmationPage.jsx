@@ -61,7 +61,7 @@ const OrderConfirmationPage = () => {
         </div>
           <div className="total-paid">
             <span>Total Paid:</span>
-            <span className="amount">₹{order.price + order.deliveryFee + order.tax}</span>
+            <span className="amount">  ₹{(order.price + order.deliveryFee + order.platformFee + order.gstCharges).toFixed(2)}</span>
           </div>
         </div>
 
